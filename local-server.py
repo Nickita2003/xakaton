@@ -151,13 +151,13 @@ def create_offline_files():
             <h2 class="text-xl font-semibold mb-4">🚀 Демо функции:</h2>
             <div class="space-y-3">
                 <button onclick="demoImport()" class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-                    📥 Импорт данных
+                     Импорт данных
                 </button>
                 <button onclick="demoTemplates()" class="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
-                    📋 Шаблоны
+                     Шаблоны
                 </button>
                 <button onclick="demoExport()" class="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700">
-                    📤 Экспорт
+                     Экспорт
                 </button>
             </div>
             
@@ -175,7 +175,7 @@ def create_offline_files():
         }
         
         function demoImport() {
-            showDemo('📥 Импорт данных', 
+            showDemo(' Импорт данных', 
                 'Поддерживаемые форматы:\\n' +
                 '• Excel (.xlsx, .xls)\\n' +
                 '• CSV файлы\\n' +
@@ -184,7 +184,7 @@ def create_offline_files():
         }
         
         function demoTemplates() {
-            showDemo('📋 Готовые шаблоны',
+            showDemo(' Готовые шаблоны',
                 'Доступные шаблоны:\\n' +
                 '• Склад товаров\\n' +
                 '• База контактов\\n' +
@@ -194,7 +194,7 @@ def create_offline_files():
         }
         
         function demoExport() {
-            showDemo('📤 Экспорт данных',
+            showDemo(' Экспорт данных',
                 'Форматы экспорта:\\n' +
                 '• Microsoft Excel (.xlsx)\\n' +
                 '• CSV файлы\\n' +
@@ -219,8 +219,8 @@ def create_offline_files():
 def start_server(port=8000):
     """Запуск локального сервера"""
     try:
-        print(f"🚀 Запуск TableFlow сервера на порту {port}...")
-        print(f"📂 Рабочая директория: {os.getcwd()}")
+        print(f" Запуск TableFlow сервера на порту {port}...")
+        print(f" Рабочая директория: {os.getcwd()}")
         
         # Создаем оффлайн файлы
         create_offline_files()
@@ -228,8 +228,8 @@ def start_server(port=8000):
         # Запускаем сервер
         with socketserver.TCPServer(("", port), TableFlowHandler) as httpd:
             print(f"✅ Сервер запущен: http://localhost:{port}")
-            print(f"🌐 Оффлайн версия: http://localhost:{port}/index-offline.html")
-            print("💡 Для остановки сервера нажмите Ctrl+C")
+            print(f" Оффлайн версия: http://localhost:{port}/index-offline.html")
+            print(" Для остановки сервера нажмите Ctrl+C")
             
             # Автоматически открываем браузер
             threading.Timer(1.0, lambda: webbrowser.open(f'http://localhost:{port}')).start()
@@ -237,13 +237,13 @@ def start_server(port=8000):
             httpd.serve_forever()
             
     except KeyboardInterrupt:
-        print("\\n🛑 Сервер остановлен")
+        print("\\n Сервер остановлен")
     except OSError as e:
         if e.errno == 98:  # Address already in use
-            print(f"❌ Порт {port} уже используется. Попробуйте другой порт:")
+            print(f" Порт {port} уже используется. Попробуйте другой порт:")
             print(f"   python local-server.py {port + 1}")
         else:
-            print(f"❌ Ошибка: {e}")
+            print(f" Ошибка: {e}")
 
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
