@@ -13,7 +13,7 @@ from datetime import datetime
 def create_project_package():
     """Создает полный пакет проекта TableFlow"""
     
-    print("🚀 Упаковка проекта TableFlow...")
+    print(" Упаковка проекта TableFlow...")
     
     # Создаем временную папку для проекта
     project_name = "tableflow-complete"
@@ -38,13 +38,7 @@ def create_project_package():
         ("tableflow-standalone.html", "tableflow-standalone.html"),
         ("generate-project.html", "generate-project.html"),
         ("README.md", "docs/README.md"),
-        ("DEPLOYMENT_GUIDE.md", "docs/DEPLOYMENT_GUIDE.md"),
-        ("INSTALLATION.md", "docs/INSTALLATION.md"),
-        ("OFFLINE_SETUP.md", "docs/OFFLINE_SETUP.md"),
-        ("DEMO_SCENARIO.md", "docs/DEMO_SCENARIO.md"),
-        ("BUSINESS_OVERVIEW.md", "docs/BUSINESS_OVERVIEW.md"),
-        ("TECHNICAL_SPEC.md", "docs/TECHNICAL_SPEC.md"),
-        ("PORTABLE_GUIDE.md", "docs/PORTABLE_GUIDE.md")
+        ("SCENARIO.md", "docs/DEMO_SCENARIO.md"),
     ]
     
     # Копируем файлы
@@ -55,7 +49,7 @@ def create_project_package():
             shutil.copy2(source, dest_path)
             print(f"✅ Скопирован: {source} -> {destination}")
         else:
-            print(f"⚠️  Файл не найден: {source}")
+            print(f  Файл не найден: {source}")
     
     # Создаем package.json для удобства
     package_info = {
@@ -103,29 +97,7 @@ python3 local-server.py"""
     # Создаем README для быстрого старта
     quick_start = """# TableFlow - Быстрый старт
 
-## 🚀 Варианты запуска
 
-### Вариант 1: Автономный (без интернета)
-Просто откройте файл `tableflow-standalone.html` в браузере
-
-### Вариант 2: Локальный сервер
-Windows: Запустите `start.bat`
-Linux/Mac: Запустите `start.sh` или `python3 local-server.py`
-
-### Вариант 3: Простой веб-сервер
-```bash
-python -m http.server 8000
-```
-Затем откройте http://localhost:8000
-
-## 📚 Документация
-Полная документация находится в папке `docs/`
-
-## 🎯 Для хакатона
-- Используйте `tableflow-standalone.html` для демонстрации
-- Или запустите `python3 local-server.py` для полного функционала
-
-Удачи! 🎉"""
 
     with open(f"{project_name}/QUICKSTART.md", "w", encoding="utf-8") as f:
         f.write(quick_start)
